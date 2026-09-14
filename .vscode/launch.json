@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Next.js: debug full stack",
-      "type": "node",
+      "type": "chrome",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/next/dist/bin/next",
       "runtimeArgs": ["--inspect"],
@@ -16,7 +16,8 @@
         "killOnServerStop": true,
         "pattern": "- Local:.+(https?://.+)",
         "uriFormat": "%s",
-        "webRoot": "${workspaceFolder}"
+        "webRoot": "${workspaceFolder}",
+        "runtimeExecutable": "C:\\Users\\corpo\\Downloads\\BraveBrowserSetup-BRV011.exe"
       },
       "cwd": "${workspaceFolder}"
     }
