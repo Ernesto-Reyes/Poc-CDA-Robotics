@@ -123,7 +123,7 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
-  role: 'marketing' | 'administrador';
+  role: 'marketing' | 'admin';
   updatedAt: string;
   createdAt: string;
   email: string;
