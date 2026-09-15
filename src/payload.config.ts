@@ -7,6 +7,8 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { logout } from '@payloadcms/next/auth'
+import { Button } from '@payloadcms/ui'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -17,6 +19,12 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+
+    components: {
+      logout:{
+        Button: '/components/LogoutButton',
+      }
+    }
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
