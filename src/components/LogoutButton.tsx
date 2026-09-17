@@ -1,7 +1,10 @@
+import Link from 'next/link'
+
 export default function LogoutButton() {
   return (
-    <a
+    <Link
       href="/admin/logout"
+      prefetch={false}
       style={{
         display: 'block',
         width: '100%',
@@ -12,6 +15,6 @@ export default function LogoutButton() {
       }}
     >
       Cerrar sesión
-    </a>
+    </Link>
   )
 }
