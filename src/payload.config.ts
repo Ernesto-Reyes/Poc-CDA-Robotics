@@ -5,6 +5,7 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
+import { Articles } from './collections/Articles'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { logout } from '@payloadcms/next/auth'
@@ -26,7 +27,23 @@ export default buildConfig({
       }
     }
   },
-  collections: [Users, Media],
+
+  localization: {
+    locales: [
+      {
+        label: 'Español',
+        code: 'es',
+      },
+      {
+        label: 'English',
+        code: 'en',
+      },
+    ],
+      defaultLocale: 'es',
+      fallback: false,
+  },
+
+  collections: [Users, Media, Articles],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
