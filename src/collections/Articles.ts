@@ -12,7 +12,7 @@ export const Articles: CollectionConfig = {
   slug: 'articles',
   hooks: {
     beforeChange: [
-      ({ data, req, operation }) => {
+      ({ data, req, operation, originalDoc }) => {
         const user = req.user
 
         if (!user) {
@@ -24,10 +24,20 @@ export const Articles: CollectionConfig = {
           data.workflowStatus = 'draft'
         }
 
-        if (
-          user.role === 'admin' &&
-          data._status === 'published'
-        ) {
+        if (user.role === 'admin' && data._status === 'published') {
+          const workflowStatus =
+            data.workflowStatus ?? originalDoc?.workflowStatus
+
+          const canPublish =
+            workflowStatus === 'approved' ||
+            workflowStatus === 'published'
+
+          if (!canPublish) {
+            throw new Error(
+              'El artículo debe estar aprobado antes de publicarse.',
+            )
+          }
+
           data.workflowStatus = 'published'
           data.publishedAt = new Date().toISOString()
         }

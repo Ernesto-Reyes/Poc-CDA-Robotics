@@ -1,0 +1,69 @@
+.page {
+  min-height: 100vh;
+  padding: 48px 24px;
+  background: #0d0d0d;
+  color: #f5f5f5;
+}
+
+.header,
+.articles {
+  width: min(100%, 960px);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  margin: 8px 0;
+  font-size: clamp(2rem, 6vw, 4rem);
+}
+
+.articles {
+  display: grid;
+  gap: 24px;
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid #303030;
+  border-radius: 16px;
+  background: #171717;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+}
+
+.content {
+  padding: 24px;
+}
+
+.content h2 {
+  margin-top: 0;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 0;
+}
+
+.details div {
+  display: grid;
+  gap: 4px;
+}
+
+.details dt {
+  color: #a8a8a8;
+  font-size: 0.8rem;
+}
+
+.details dd {
+  margin: 0;
+}
